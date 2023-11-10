@@ -22,7 +22,9 @@ def login():
             if user is None:
                 flash("Invalid Username")
             else:
-                if user.verify_hash(form.password.data):
+                if user.password_hash is None:
+                    flash("please user Oauth to login")
+                elif user.verify_hash(form.password.data):
                     login_user(user)
                     next = request.args.get("next")
                     return redirect(next or url_for("main.index"))
