@@ -1,6 +1,10 @@
 # Flask Template
 
 ## Before you start
+To install all dependencies
+
+`pip install -r requirements.txt`
+
 To initialize flask-migrate extensions
 
 `flask --app flaskapp db init`
