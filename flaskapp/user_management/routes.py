@@ -28,6 +28,8 @@ def login():
                     login_user(user)
                     next = request.args.get("next")
                     return redirect(next or url_for("main.index"))
+                else:
+                    flash("Login Fail")
     return render_template("user/login.html", form=form)
 
 
