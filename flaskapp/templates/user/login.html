@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div style="border: 1px solid black; padding: 10px 20px">
+        <h3>Fun Logins</h3>
+        <ul>
+            <li>
+                <a class="btn btn-primary" href="{{ url_for('user_management.oauth_login', provider='google') }}">Login with Google</a>
+            </li>
+            <li>
+                <a class="btn btn-primary" href="{{ url_for('user_management.oauth_login', provider='github') }}">Login with GitHub</a>
+            </li>
+        </ul>
+    </div>
+    <div style="border: 1px solid black; padding: 10px 20px">
+        <h3> Boring Login </h3>
+        <form method="post">
+            {{form.csrf_token}}
+
+            {{form.email.label}} {{form.email()}}
+            {{form.password.label}} {{form.password()}}
+
+            <button>Boom</button>
+        </form>
+    </div>
+
+{% endblock %}
